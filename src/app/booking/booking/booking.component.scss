@@ -1,0 +1,112 @@
+.booking_wrp {
+  font-family: 'Montserrat', sans-serif;
+
+  .booking_bg {
+    padding: 20px 0;
+    background-image: url(../../../assets/bg_image.png);
+    margin-bottom: 50px;
+
+    h6 {
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  }
+
+  .retrieve_form {
+    padding: 28px 25px;
+    border: 1px solid #000;
+
+    .retrieve_title {
+      color: #113145;
+      text-align: center;
+      font-size: 38px;
+      line-height: 40px;
+      font-weight: 700;
+      
+    }
+
+    .separator {
+      display: block;
+      text-align: center;
+      background-color: #113145;
+      padding: 2px 20px;
+      width: fit-content;
+      margin: 25px auto;
+    }
+
+    .retrieve_text {
+      line-height: 28px;
+      font-weight: 500;
+      margin-bottom: 25px;
+      color: #061037;
+    }
+
+    .form-group {
+      label {
+        font-weight: 600;
+        color: #061037;
+      }
+
+      input {
+        border: 1px solid #82889c;
+        border-radius: 0;
+        font-weight: 500;
+        color: #061037;
+      }
+
+    }
+
+    .button_wrp {
+      text-align: center;
+
+      .retrieve_btn {
+        background-color: #d41e02;
+        color: #ffff;
+        font-weight: 500;
+        border-radius: 3px;
+        margin: 0 auto;
+        font-size: 16px;
+        margin-top: 15px;
+        padding: 8px 25px;
+      }
+    }
+  }
+
+}
+
+
+@media (max-width: 479px) {
+    .booking_wrp{
+        .booking_bg{
+            margin-bottom: 0;
+        }
+        .retrieve_form{
+            border: none;
+            .retrieve_title{
+                font-size: 34px;
+            }
+            .button_wrp{
+                .retrieve_btn{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+@media (max-width: 375px) {
+    .booking_wrp{
+        .retrieve_form{
+            .retrieve_title{
+                font-size: 28px;
+                line-height: 33px;
+            }
+            .button_wrp{
+                .retrieve_btn{
+                    width: 100%;
+                }
+            }
+        }
+    }
+}

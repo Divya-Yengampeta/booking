@@ -1,0 +1,58 @@
+.booking_wrp {
+  font-family: 'Montserrat', sans-serif;
+
+  .booking_bg {
+    padding: 20px 15px;
+    background-image: url(../../../assets/bg_image.png);
+    margin-bottom: 50px;
+    text-align: center;
+
+
+
+    .backButton {
+      position: relative;
+
+      a {
+        position: absolute;
+        left: 0;
+      }
+    }
+
+    h6 {
+      color: #fff;
+      text-align: center;
+      text-transform: uppercase;
+      margin: 0;
+    }
+  }
+}
+
+.backButton a {
+  color: white;
+}
+
+.range-accordion .btn-link {
+  width: 100%;
+  text-decoration-line: none;
+}
+::ng-deep .range-accordion .btn{
+  width: 100%;
+  text-decoration: none;
+  transition: all 0.5s ease-in-out;
+}
+::ng-deep .btn.btn-link:focus{
+  box-shadow: none;
+}
+::ng-deep button.btn.btn-link.collapsed{
+  i{
+    transform: rotate(180deg);
+    height: max-content;
+  }
+}
+@media (max-width: 479px) {
+  .booking_wrp {
+    .booking_bg {
+      margin-bottom: 0;
+    }
+  }
+}

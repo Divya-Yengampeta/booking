@@ -1,0 +1,172 @@
+<div class="booking_wrp">
+  <div class="booking_bg">
+    <div class="backButton" [routerLink]="['/']">
+      <a href="javascript:void(0)">
+        <!-- icon rakhna hai arrow wala -->
+        <i class="fa-solid fa-angle-left"></i>
+      </a>
+    </div>
+    <h6>Booking details</h6>
+  </div>
+  <div class="container mb-5">
+    <p>
+      <span>Booking Code : {{bookingCode}} having family name as : {{familyName}} </span>
+
+    </p>
+
+    <!-- CONTACT DETAILS  -->
+    <div>
+      <p><b>Contact Details</b> :
+        <span>{{searchResult[0]?.contactDetails[0]?.address}}</span>
+      </p>
+      <p><b>Passengers Details</b> :
+        <span>{{searchResult[0]?.passengers?.title?.name}} {{searchResult[0]?.passengers?.firstName | titlecase}}
+          {{searchResult[0]?.passengers?.lastName | titlecase}}</span>
+      </p>
+    </div>
+
+    <!-- ITENARY DETAILS -->
+    <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" class="range-accordion">
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex" style="font-weight: bold; color: #1c2128;">Itinerary Details</div>
+            <div class="d-flex align-item-center"><i class="fa-solid fa-chevron-down"></i></div>
+          </div>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="card">
+            <div class="card-body">
+              <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" class="range-accordion">
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex" style="font-weight: bold; color: #1c2128;">Departure Details</div>
+                      <div class="d-flex align-item-center"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <p><b>Depart From</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.departFrom?.name | titlecase}}
+                    </p>
+                    <p> <b>City</b>: 
+                        {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.departFrom?.city?.name | titlecase}}
+                    </p>
+                    <p> <b>Country</b>:
+                        {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.departFrom?.city?.country?.name | titlecase}}
+                      </p>
+                    <hr style=" margin:0;padding:0" />
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex" style="font-weight: bold; color: #1c2128;">Arrival Detailss</div>
+                      <div class="d-flex align-item-center"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <p><b>Arrive On</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.arriveOn?.name | titlecase}}
+                    </p>
+                    <p> <b>City</b>: 
+                        {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.arriveOn?.city?.name | titlecase}}
+                    </p>
+                    <p> <b>Country</b>:
+                        {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.arriveOn?.city?.country?.name | titlecase}}
+                      </p>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-panel>
+      <!-- ITENARY DETAILS ENDS-->
+      <ngb-panel>
+        <ng-template ngbPanelTitle>
+          <div class="d-flex justify-content-between">
+            <div class="d-flex" style="font-weight: bold; color: #1c2128;">Marketing Flight Details</div>
+            <div class="d-flex align-item-center"><i class="fa-solid fa-chevron-down"></i></div>
+          </div>
+        </ng-template>
+        <ng-template ngbPanelContent>
+          <div class="card">
+            <div class="card-body">
+              <p><b>Status</b> :
+                {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.status?.name | titlecase}}
+              </p>
+              <hr style=" margin:0;padding:0" />
+              <p><b>Carrier Name</b> :
+                {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.carrier?.name | titlecase}}
+              </p>
+              <hr style=" margin:0;padding:0" />
+              <ngb-accordion #acc="ngbAccordion" activeIds="ngb-panel-0" class="range-accordion">
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex" style="font-weight: bold; color: #1c2128;">Operating Flight Detailss</div>
+                      <div class="d-flex align-item-center"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <p><b>Flight </b>:
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.equipment?.name | titlecase}}
+                    </p>
+                    <p><b>Arrival Terminal</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.arrivalTerminal?.name | titlecase}}
+                    </p>
+                    <p><b>Cabin</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.cabin?.name | titlecase}}
+                    </p>
+                    <p><b>Flown</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.flown=== true?'Yes': 'No'}}
+                    </p>
+                    <hr style=" margin:0;padding:0" />
+                  </ng-template>
+                </ngb-panel>
+                <ngb-panel>
+                  <ng-template ngbPanelTitle>
+                    <div class="d-flex justify-content-between">
+                      <div class="d-flex" style="font-weight: bold; color: #1c2128;">Timingss</div>
+                      <div class="d-flex align-item-center"><i class="fa-solid fa-chevron-down"></i></div>
+                    </div>
+                  </ng-template>
+                  <ng-template ngbPanelContent>
+                    <p><b>Check In Date</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.checkInStart | date: 'dd/MM/yyyy hh:mm a'}}
+                    </p>
+                    <p><b>Check Out Date</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.checkInEnd | date: 'dd/MM/yyyy hh:mm a'}}
+                    </p>
+
+                    <p><b>Scheduled Arrival Date</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.scheduledArrival | date: 'dd/MM/yyyy hh:mm a'}}
+                    </p>
+                    <p><b>Scheduled Departure Date</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.scheduledDeparture | date: 'dd/MM/yyyy hh:mm a'}}
+                    </p>
+                    <hr style=" margin:0;padding:0" />
+                    <p><b>Local Check In Date</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.localCheckInStart | date: 'dd/MM/yyyy hh:mm a'}}
+                    </p>
+                    <p><b>Local Check Out Date</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.localCheckInEnd | date: 'dd/MM/yyyy hh:mm a'}}
+                    </p>
+
+                    <p><b>Local Scheduled Arrival Date</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.localScheduledArrival | date: 'dd/MM/yyyy hh:mm a'}}
+                    </p>
+                    <p><b>Local Scheduled Departure Date</b> :
+                      {{searchResult[0]?.itinerary?.connections[0]?.segments[0]?.marketingFlight?.operatingFlight?.localScheduledDeparture | date: 'dd/MM/yyyy hh:mm a'}}
+                    </p>
+                  </ng-template>
+                </ngb-panel>
+              </ngb-accordion>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-panel>
+    </ngb-accordion>
+  </div>
+</div>
